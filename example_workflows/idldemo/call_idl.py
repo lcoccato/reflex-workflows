@@ -15,14 +15,15 @@ if __name__ == '__main__':
   #Initialize output:
   outputs.out_sof = inputs.in_sof
 
-  # call idl for a category of files:
+  # To call idl for a category of files (e.g., MASTER_BIAS):
+  # uncomment the line #if file.category == 'MASTER_BIAS' : listed below
   for file in inputs.in_sof.files:
     #select a file category:
     #if file.category == 'MASTER_BIAS' : 
       infile = file.name
       newname= file.name.replace(".fits", "_new.fits")
       file.name= newname
-      #os.system("csh -c 'idl -e myidlscript -args \""+infile+"\" \""+newname+"\"'")
+      os.system("csh -c 'idl -e myidlscript -args \""+infile+"\" \""+newname+"\"'")
 
 
   #write the output 
