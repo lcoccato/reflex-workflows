@@ -23,6 +23,9 @@ if __name__ == '__main__':
       infile = file.name
       newname= file.name.replace(".fits", "_new.fits")
       file.name= newname
+      #NOTE if myidlscript.pro calls routines that are in a user-defined IDL path, the workflow
+      #will not load them, unless the environmental variable IDL_PATH is defined (either with 
+      # the esoreflex.rc configuration file or with an explicit statement in the python actor.
       os.system("csh -c 'idl -e myidlscript -args \""+infile+"\" \""+newname+"\"'")
 
 
